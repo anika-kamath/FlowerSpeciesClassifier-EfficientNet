@@ -1,5 +1,3 @@
-from model import build_model
-
 import torch
 import numpy as np
 from torch import nn, optim
@@ -166,7 +164,7 @@ def train_model(data_dir, save_dir, arch, hidden_units, learning_rate, num_epoch
 
     train_loader, valid_loader, test_loader, train_data, valid_data = transform_data(train_dir, valid_dir, test_dir)
 
-    model, criterion, optimizer, scheduler = build_model(arch, hidden_units, learning_rate, gpu)
+    model, criterion, optimizer, scheduler = choose_architecture(arch, hidden_units, learning_rate, gpu)
 
     since = time.time()
 
